@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danièle OGOU - Portfolio Data Analyst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS VARIABLES - THEME */
+        :root {
+            --primary: #1E3A8A; /* Deep Blue */
+            --secondary: #10B981; /* Emerald Green for Data/Tech vibe */
+            --dark: #0F172A;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --transition: all 0.3s ease;
+        }
+
+        /* GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        section { padding: 80px 10%; }
+        
+        /* NAVBAR */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; transition: var(--transition); }
+        .nav-links a:hover { color: var(--secondary); }
+        .btn-hire { background: var(--primary); color: white; padding: 8px 20px; border-radius: 25px; transition: var(--transition); }
+        .btn-hire:hover { background: var(--secondary); color: white; }
+
+        /* HERO SECTION */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding-top: 120px; background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); }
+        .hero-content { max-width: 600px; }
+        .tagline { display: inline-block; padding: 5px 15px; background: rgba(16, 185, 129, 0.1); color: var(--secondary); border-radius: 20px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: var(--dark); }
+        .hero h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; }
+        .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 30px; }
+        .highlight { color: var(--secondary); font-weight: 700; }
+        .hero-buttons { display: flex; gap: 15px; }
+        .btn { padding: 12px 28px; border-radius: 30px; font-weight: 600; transition: var(--transition); border: 2px solid transparent; cursor: pointer; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: transparent; border-color: var(--primary); color: var(--primary); }
+        .btn-outline { background: transparent; border-color: var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        /* SKILLS SECTION */
+        .skills { background: white; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; width: 50%; height: 4px; background: var(--secondary); bottom: -10px; left: 25%; border-radius: 2px; }
+        .skills-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .skill-tag { background: #E2E8F0; padding: 10px 20px; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: var(--transition); }
+        .skill-tag:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+        .skill-learning { border: 2px dashed var(--secondary); background: transparent; }
+
+        /* PROJECTS SECTION */
+        .projects { background: var(--light); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); border-top: 5px solid var(--secondary); }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .project-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
+        .project-card p { color: var(--gray); margin-bottom: 20px; font-size: 0.95rem; }
+        .tech-stack { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tech { font-size: 0.8rem; background: var(--light); padding: 5px 10px; border-radius: 5px; font-weight: 600; color: var(--primary); }
+        .project-link { color: var(--secondary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+        .project-link:hover { text-decoration: underline; }
+
+        /* EXPERIENCE SECTION (Datafied) */
+        .experience { background: white; }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: #E2E8F0; }
+        .timeline-item { width: 50%; padding: 20px 40px; position: relative; }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-dot { position: absolute; top: 30px; width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2); }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+        .timeline-content { background: var(--light); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .timeline-content h3 { color: var(--primary); }
+        .timeline-content h4 { color: var(--gray); font-size: 0.9rem; margin-bottom: 15px; }
+        .timeline-content ul { text-align: left; margin-left: 20px; list-style-type: square; color: var(--dark); font-size: 0.95rem; }
+        .timeline-content ul li { margin-bottom: 8px; }
+
+        /* CONTACT SECTION */
+        .contact { background: var(--dark); color: white; text-align: center; }
+        .contact p { margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e1; }
+        .contact-info { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        .contact-item i { color: var(--secondary); font-size: 1.5rem; }
+        .social-links a { font-size: 1.8rem; margin: 0 15px; transition: var(--transition); color: white; }
+        .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; left: 0 !important; text-align: left !important; }
+            .timeline-dot { left: 10px !important; }
+            .hero { text-align: center; justify-content: center; }
+            .hero-buttons { justify-content: center; }
+        }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Danièle <span>OGOU</span></div>
+        <div class="nav-links">
+            <a href="#about">À propos</a>
+            <a href="#skills">Compétences</a>
+            <a href="#projects">Projets Data</a>
+            <a href="#experience">Expérience</a>
+        </div>
+        <a href="#contact" class="btn-hire">Me contacter</a>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content reveal active">
+            <span class="tagline">🎯 Recherche Stage : 27 Juillet - 4 Sept 2026</span>
+            <h1>De la Stratégie Métier à <br>la <span class="highlight">Data Science</span></h1>
+            <h2>Data Analyst | Business Analyst</h2>
+            <p>Forte de <strong>16 ans d'expérience en pilotage commercial et CRM</strong>, je me reconvertis dans la Data via une formation intensive à la Wild Code School. Mon atout ? Je ne fais pas que manipuler des bases de données, je sais les faire parler pour <strong>piloter la performance et la prise de décision stratégique</strong>.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                <a href="mailto:danieleogou@live.fr" class="btn btn-outline">Télécharger CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="section-title">Ma Stack Technique & Métier</h2>
+        <br><br>
+        <div class="skills-grid reveal">
+            <div class="skill-tag skill-learning" title="En cours d'acquisition à la Wild Code School"><i class="fab fa-python"></i> Python (Pandas, NumPy)</div>
+            <div class="skill-tag skill-learning"><i class="fas fa-database"></i> SQL</div>
+            <div class="skill-tag skill-learning"><i class="fas fa-chart-bar"></i> Power BI</div>
+            
+            <div class="skill-tag"><i class="fas fa-file-excel"></i> Excel Avancé (TCD, Macros)</div>
+            <div class="skill-tag"><i class="fas fa-chart-pie"></i> Google Analytics</div>
+            <div class="skill-tag"><i class="fas fa-users-cog"></i> Salesforce / HubSpot</div>
+            <div class="skill-tag"><i class="fas fa-cogs"></i> TimeTonic (No-code)</div>
+            <div class="skill-tag"><i class="fas fa-project-diagram"></i> Modélisation de KPI</div>
+            <div class="skill-tag"><i class="fas fa-filter"></i> Data Cleaning</div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <center><h2 class="section-title">Mes Projets Data (Wild Code School)</h2></center>
+        <br><br>
+        <div class="projects-grid reveal">
+            
+            <div class="project-card">
+                <h3>🔍 Projet 1 : Analyse Exploratoire (EDA)</h3>
+                <p>Extraction, nettoyage et analyse exploratoire d'un jeu de données complexe. Identification des valeurs aberrantes, traitement des données manquantes et premières conclusions business.</p>
+                <div class="tech-stack">
+                    <span class="tech">Python</span>
+                    <span class="tech">Pandas</span>
+                    <span class="tech">Dataviz</span>
+                </div>
+                <a href="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/" target="_blank" class="project-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card">
+                <h3>📊 Projet 2 : Business Intelligence</h3>
+                <p>Création d'un tableau de bord interactif pour la prise de décision. Modélisation des données, création de mesures DAX et restitution visuelle claire des indicateurs clés (KPIs).</p>
+                <div class="tech-stack">
+                    <span class="tech">Power BI</span>
+                    <span class="tech">SQL</span>
+                    <span class="tech">Data Storytelling</span>
+                </div>
+                <a href="https://wildcodeschool.github.io/data-training-resources/projet/projet-2/" target="_blank" class="project-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card">
+                <h3>🤖 Projet 3 : Machine Learning (À venir)</h3>
+                <p>Développement de modèles prédictifs basés sur l'historique client pour anticiper le churn (attrition) et optimiser les campagnes marketing ciblées.</p>
+                <div class="tech-stack">
+                    <span class="tech">Machine Learning</span>
+                    <span class="tech">Scikit-Learn</span>
+                    <span class="tech">Analyse Prédictive</span>
+                </div>
+                <span class="project-link" style="color:var(--gray); cursor:not-allowed;">En cours de développement...</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <center><h2 class="section-title">Expérience Métier : Orientée Data & KPI</h2></center>
+        <br><br>
+        <div class="timeline reveal">
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Responsable Commerciale & CRM Manager</h3>
+                    <h4>CKFD Environnement | 2020 - Aujourd'hui</h4>
+                    <ul>
+                        <li><strong>Data Visualisation :</strong> Conception et automatisation de tableaux de bord de suivi KPI sous Excel.</li>
+                        <li><strong>Reporting RSE :</strong> Création de 3 reportings automatisés (performance commerciale, financière et environnementale).</li>
+                        <li><strong>Base de données & CRM :</strong> Pilotage et paramétrage en no-code du CRM Time Tonic, structuration des bases de données et conduite du changement (15 utilisateurs).</li>
+                        <li><strong>Analyse Stratégique :</strong> Membre du Comité de Direction, pilotage d'un portefeuille de +300 clients B2B.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cheffe de Projet Commerciale & Marketing</h3>
+                    <h4>Sanso Investment Solutions | 2017 - 2019</h4>
+                    <ul>
+                        <li><strong>Data Analytics :</strong> Segmentation des portefeuilles clients, identification de tendances et calcul du ROI des campagnes.</li>
+                        <li><strong>Web Analytics :</strong> Exploitation de Google Analytics pour mesurer la performance digitale.</li>
+                        <li><strong>Data Quality :</strong> Mise à jour, enrichissement et contrôle qualité des bases de données clients.</li>
+                        <li><strong>Reporting :</strong> Conception de tableaux de bord pour la Direction Générale et analyse des comportements clients.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Adjointe au Responsable SC & Analyste Ops</h3>
+                    <h4>SOLO INVEST & TOTAL ARGEDIS | 2014 - 2016</h4>
+                    <ul>
+                        <li>Création de dashboards et suivi quotidien des performances commerciales (Sell-out).</li>
+                        <li>Analyse quantitative et qualitative d'enquêtes de satisfaction client.</li>
+                        <li>Optimisation des processus internes (certification ISO 9001).</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title" style="color:white;">Prêt à collaborer ?</h2>
+        <br>
+        <p>Je suis disponible pour un stage de Data Analyst / Business Analyst du <strong>27 juillet au 4 septembre 2026</strong>.<br>Discutons de vos données et de la façon dont je peux vous aider à les valoriser.</p>
+        
+        <div class="contact-info reveal">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:danieleogou@live.fr">danieleogou@live.fr</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+33645680173">06 45 68 01 73</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>95110 Sannois, Île-de-France</span>
+            </div>
+        </div>
+
+        <div class="social-links reveal">
+            <a href="https://linkedin.com/in/daniele-ogou" target="_blank" title="Mon Profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/" target="_blank" title="Mon GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Scrolling effect is handled in CSS, but here is the reveal animation logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+    </script>
+</body>
+</html>
