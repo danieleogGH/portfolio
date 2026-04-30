@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
     <style>
         /* CSS VARIABLES - THEME */
         :root {
-            --primary: #1E3A8A; /* Deep Blue */
-            --secondary: #10B981; /* Emerald Green for Data/Tech vibe */
+            --primary: #1E3A8A; 
+            --secondary: #10B981; 
             --dark: #0F172A;
             --light: #F8FAFC;
             --gray: #64748B;
@@ -45,7 +45,7 @@
         .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 30px; }
         .highlight { color: var(--secondary); font-weight: 700; }
         .hero-buttons { display: flex; gap: 15px; }
-        .btn { padding: 12px 28px; border-radius: 30px; font-weight: 600; transition: var(--transition); border: 2px solid transparent; cursor: pointer; }
+        .btn { padding: 12px 28px; border-radius: 30px; font-weight: 600; transition: var(--transition); border: 2px solid transparent; cursor: pointer; display: inline-block; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:hover { background: transparent; border-color: var(--primary); color: var(--primary); }
         .btn-outline { background: transparent; border-color: var(--primary); color: var(--primary); }
@@ -72,7 +72,7 @@
         .project-link { color: var(--secondary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
         .project-link:hover { text-decoration: underline; }
 
-        /* EXPERIENCE SECTION (Datafied) */
+        /* EXPERIENCE SECTION */
         .experience { background: white; }
         .timeline { position: relative; max-width: 800px; margin: 0 auto; }
         .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: #E2E8F0; }
@@ -97,19 +97,18 @@
         .social-links a { font-size: 1.8rem; margin: 0 15px; transition: var(--transition); color: white; }
         .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
 
-        /* RESPONSIVE DESIGN */
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; left: 0 !important; text-align: left !important; }
             .timeline-dot { left: 10px !important; }
             .hero { text-align: center; justify-content: center; }
-            .hero-buttons { justify-content: center; }
+            .hero-buttons { justify-content: center; flex-direction: column; }
         }
-
-        /* ANIMATIONS */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -130,10 +129,10 @@
             <span class="tagline">🎯 Recherche Stage : 27 Juillet - 4 Sept 2026</span>
             <h1>De la Stratégie Métier à <br>la <span class="highlight">Data Science</span></h1>
             <h2>Data Analyst | Business Analyst</h2>
-            <p>Forte de <strong>16 ans d'expérience en pilotage commercial et CRM</strong>, je me reconvertis dans la Data via une formation intensive à la Wild Code School. Mon atout ? Je sais manipuler des bases de données et aussi les faire parler pour <strong>piloter la performance et la prise de décision stratégique</strong>.</p>
+            <p><strong>Après 16 ans à piloter la performance commerciale et les stratégies CRM</strong>, j'ai choisi de mettre mon expertise métier au service de l'analyse de données. Actuellement en formation intensive à la Wild Code School, je combine ma vision stratégique avec des outils technologiques pour transformer vos données en leviers de croissance concrets.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                <a href="mailto:danieleogou@live.fr" class="btn btn-outline">Télécharger CV</a>
+                <a href="document/CV - Danièle OGOU - Stage Data Analyst - p.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Télécharger mon CV</a>
             </div>
         </div>
     </section>
@@ -142,10 +141,9 @@
         <h2 class="section-title">Ma Stack Technique & Métier</h2>
         <br><br>
         <div class="skills-grid reveal">
-            <div class="skill-tag skill-learning" title="En cours d'acquisition à la Wild Code School"><i class="fab fa-python"></i> Python (Pandas, NumPy)</div>
+            <div class="skill-tag skill-learning"><i class="fab fa-python"></i> Python (Pandas, NumPy)</div>
             <div class="skill-tag skill-learning"><i class="fas fa-database"></i> SQL</div>
             <div class="skill-tag skill-learning"><i class="fas fa-chart-bar"></i> Power BI</div>
-            
             <div class="skill-tag"><i class="fas fa-file-excel"></i> Excel Avancé (TCD, Macros)</div>
             <div class="skill-tag"><i class="fas fa-chart-pie"></i> Google Analytics</div>
             <div class="skill-tag"><i class="fas fa-users-cog"></i> Salesforce / HubSpot</div>
@@ -159,7 +157,6 @@
         <center><h2 class="section-title">Mes Projets Data (Wild Code School)</h2></center>
         <br><br>
         <div class="projects-grid reveal">
-            
             <div class="project-card">
                 <h3>🔍 Projet 1 : Analyse Exploratoire (EDA)</h3>
                 <p>Extraction, nettoyage et analyse exploratoire d'un jeu de données complexe. Identification des valeurs aberrantes, traitement des données manquantes et premières conclusions business.</p>
@@ -183,16 +180,15 @@
             </div>
 
             <div class="project-card">
-                <h3>🤖 Projet 3 : Machine Learning (À venir)</h3>
-                <p>Développement de modèles prédictifs basés sur l'historique client pour anticiper le churn (attrition) et optimiser les campagnes marketing ciblées.</p>
+                <h3>🤖 Projet 3 : Machine Learning</h3>
+                <p>Analyse de corrélation et modélisation pour identifier les facteurs influençant la performance commerciale et automatiser les processus de reporting.</p>
                 <div class="tech-stack">
                     <span class="tech">Machine Learning</span>
                     <span class="tech">Scikit-Learn</span>
                     <span class="tech">Analyse Prédictive</span>
                 </div>
-                <span class="project-link" style="color:var(--gray); cursor:not-allowed;">En cours de développement...</span>
+                <span class="project-link" style="color:var(--gray);">En cours de réalisation...</span>
             </div>
-
         </div>
     </section>
 
@@ -200,17 +196,15 @@
         <center><h2 class="section-title">Expérience Métier : Orientée Data & KPI</h2></center>
         <br><br>
         <div class="timeline reveal">
-            
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>Responsable Commerciale & CRM Manager</h3>
                     <h4>CKFD Environnement | 2020 - Aujourd'hui</h4>
                     <ul>
-                        <li><strong>Data Visualisation :</strong> Conception et automatisation de tableaux de bord de suivi KPI sous Excel.</li>
-                        <li><strong>Reporting RSE :</strong> Création de 3 reportings automatisés (performance commerciale, financière et environnementale).</li>
-                        <li><strong>Base de données & CRM :</strong> Pilotage et paramétrage en no-code du CRM Time Tonic, structuration des bases de données et conduite du changement (15 utilisateurs).</li>
-                        <li><strong>Analyse Stratégique :</strong> Membre du Comité de Direction, pilotage d'un portefeuille de +300 clients B2B.</li>
+                        <li><strong>Data Visualisation :</strong> Conception de tableaux de bord automatisés sous Excel pour le suivi KPI.</li>
+                        <li><strong>Reporting RSE :</strong> Automatisation des flux de données pour les reportings financiers et environnementaux.</li>
+                        <li><strong>CRM Engineering :</strong> Architecture et déploiement du CRM Time Tonic (analyse besoins, paramétrage, formation).</li>
                     </ul>
                 </div>
             </div>
@@ -221,58 +215,33 @@
                     <h3>Cheffe de Projet Commerciale & Marketing</h3>
                     <h4>Sanso Investment Solutions | 2017 - 2019</h4>
                     <ul>
-                        <li><strong>Data Analytics :</strong> Segmentation des portefeuilles clients, identification de tendances et calcul du ROI des campagnes.</li>
-                        <li><strong>Web Analytics :</strong> Exploitation de Google Analytics pour mesurer la performance digitale.</li>
-                        <li><strong>Data Quality :</strong> Mise à jour, enrichissement et contrôle qualité des bases de données clients.</li>
-                        <li><strong>Reporting :</strong> Conception de tableaux de bord pour la Direction Générale et analyse des comportements clients.</li>
+                        <li><strong>Data Analytics :</strong> Segmentation client et analyse de tendances pour l'aide à la décision stratégique.</li>
+                        <li><strong>Web Analytics :</strong> Pilotage de Google Analytics pour l'optimisation du parcours utilisateur.</li>
+                        <li><strong>Data Quality :</strong> Gouvernance et enrichissement des bases de données clients.</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Adjointe au Responsable SC & Analyste Ops</h3>
-                    <h4>SOLO INVEST & TOTAL ARGEDIS | 2014 - 2016</h4>
-                    <ul>
-                        <li>Création de dashboards et suivi quotidien des performances commerciales (Sell-out).</li>
-                        <li>Analyse quantitative et qualitative d'enquêtes de satisfaction client.</li>
-                        <li>Optimisation des processus internes (certification ISO 9001).</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title" style="color:white;">Prêt à collaborer ?</h2>
+        <h2 class="section-title" style="color:white;">Travaillons ensemble</h2>
         <br>
-        <p>Je suis disponible pour un stage de Data Analyst / Business Analyst du <strong>27 juillet au 4 septembre 2026</strong>.<br>Discutons de vos données et de la façon dont je peux vous aider à les valoriser.</p>
+        <p>Disponible pour un stage de Data Analyst / Business Analyst du <strong>27 juillet au 4 septembre 2026</strong>.</p>
         
         <div class="contact-info reveal">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:danieleogou@live.fr">danieleogou@live.fr</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <a href="tel:+33645680173">06 45 68 01 73</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>95110 Sannois, Île-de-France</span>
-            </div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:danieleogou@live.fr">danieleogou@live.fr</a></div>
+            <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+33645680173">06 45 68 01 73</a></div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>95110 Sannois, Île-de-France</span></div>
         </div>
 
         <div class="social-links reveal">
-            <a href="https://linkedin.com/in/daniele-ogou" target="_blank" title="Mon Profil LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/" target="_blank" title="Mon GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/daniele-ogou" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </section>
 
     <script>
-        // Smooth Scrolling effect is handled in CSS, but here is the reveal animation logic
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -285,7 +254,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
+        reveal();
     </script>
 </body>
 </html>
